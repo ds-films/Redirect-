@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# --- Перенаправление с m. и без www на www ---
+RewriteCond %{HTTP_HOST} ^m\.dominikphotofficial\.lt$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^dominikphotofficial\.lt$ [NC]
+RewriteRule ^(.*)$ https://www.dominikphotofficial.lt/$1 [L,R=301]
+
+# --- Принудительное HTTPS ---
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://www.dominikphotofficial.lt/$1 [L,R=301]
